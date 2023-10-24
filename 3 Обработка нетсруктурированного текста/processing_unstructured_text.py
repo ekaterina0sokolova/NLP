@@ -44,10 +44,6 @@ def get_correct_titles(titles_list):
         title = result_title.rpartition(' ')[0]
         page = result_title.rpartition(' ')[2]
 
-        #
-        # проверку проходит, но брейк переходит сразу к ретерну
-        #
-        #
         if title == "«О марте. Об апреле. О мае. Об июне и":
             title = "«О марте. Об апреле. О мае. Об июне и июле. Об августе»"
             page = "1311"
@@ -91,21 +87,21 @@ if __name__ == '__main__':
             page_content = reader.pages[i].extract_text()
             # удаляем переносы в начале страницы
             page_content = "\n" + page_content[5:]
-            # print("page_content: "+page_content)
             content_str = content_str + page_content
+
         titles_list = content_str.split("\n")
 
         # словарь с названиями, парами [название, страница]
         result_titles1, result_titles2 = get_correct_titles(titles_list)
 
         # сортируем список рассказов
-        sorted_title_list = sorted(result_titles2)
-        print(result_titles2)
+        sorted_title_list1 = sorted(result_titles1)
+        sorted_title_list2 = sorted(result_titles2)
 
         # запись названий в csv файл
         with open("Titles.csv", "w+", newline="") as file:
             wr = csv.writer(file, delimiter="\n")
-            wr.writerow(sorted_title_list)
+            wr.writerow(sorted_title_list1)
 
         print("Обрабатываются...")
         # создание файла с текстом рассказа
