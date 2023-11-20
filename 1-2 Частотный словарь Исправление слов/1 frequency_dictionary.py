@@ -44,8 +44,8 @@ symbol_list = []
 all_words_count = 0
 
 print("Обработка файлов: \n")
-for i in range(len(os.listdir(r"texts"))):
-    path = r"texts\\" + str(file_name_list[i])
+for i in range(len(os.listdir(r"books_before"))):
+    path = r"books_before\\" + str(file_name_list[i])
     with open(path, encoding="utf-8") as f:
         print(f"{file_name_list[i]}")
         text = f.read().lower()
