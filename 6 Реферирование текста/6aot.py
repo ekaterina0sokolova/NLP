@@ -157,7 +157,6 @@ sum_ref.close()
 round_num = 3
 refs_list = ["referat.txt", "splitbrain.txt", "visual_word.txt", "summa.txt"]
 
-
 max_length = max(len(string) for string in refs_list)
 refs_list = [string.ljust(max_length) for string in refs_list]
 
